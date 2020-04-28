@@ -1,26 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [isFlip, setIsFlip] = useState(false);
+
+    return (
+        <div className="App">
+            <header className="App-header">
+                <div class="scene">
+                    <div className="card__face card__face--inside">
+                        La verdad es que sos una persona bellisima, sos valida y
+                        te quiero mucho, nunca cambies 😘
+                    </div>
+                    <div
+                        className={`card ${isFlip && "is-flipped"}`}
+                        onClick={() => setIsFlip(!isFlip)}
+                    >
+                        <div class="card__face card__face--front">
+                            Dentro está una verdad muy dura
+                        </div>
+                        <div class="card__face card__face--back"></div>
+                    </div>
+                </div>
+            </header>
+        </div>
+    );
 }
 
 export default App;

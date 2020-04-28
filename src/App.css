@@ -1,38 +1,62 @@
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+    text-align: center;
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 700;
+    font-family: "Work Sans", serif;
+    color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.scene {
+    width: 200px;
+    height: 260px;
+    perspective: 800px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.card {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    transform-origin: center left;
+}
+.card__face {
+    border-radius: 13px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: center;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    backface-visibility: hidden;
+}
+.card.is-flipped {
+    transform: rotateY(-180deg);
+}
+
+.card__face--front {
+    background-image: linear-gradient(to right, #434343 0%, black 100%);
+}
+
+.card__face--back {
+    transform: rotateY(180deg);
+    width: 100%;
+    height: 100%;
+    background: url("./tamas-tuzes-katai-As-D1v5maSI-unsplash.jpg");
+    background-size: cover;
+}
+
+.card__face--inside {
+    background-image: linear-gradient(to top, #0ba360 0%, #3cba92 100%);
 }
